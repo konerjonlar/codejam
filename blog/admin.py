@@ -1,8 +1,61 @@
 from django.contrib import admin
 
-from blog.models import Blog
+from blog.models import Post, Project
 
 
-@admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ("title", "description")
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ("title", "description", "tags")
+    search_fields = ("title", "tags")
+
+    readonly_fields = ("created_at", "updated_at")
+    fieldsets = (
+        (
+            "Post Information",
+            {
+                "fields": (
+                    "title",
+                    "description",
+                    "tags",
+                ),
+            },
+        ),
+        (
+            "Dates",
+            {
+                "fields": (
+                    "created_at",
+                    "updated_at",
+                ),
+            },
+        ),
+    )
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ("title", "description", "tags")
+    search_fields = ("title", "tags")
+
+    readonly_fields = ("created_at", "updated_at")
+    fieldsets = (
+        (
+            "Post Information",
+            {
+                "fields": (
+                    "title",
+                    "description",
+                    "tags",
+                ),
+            },
+        ),
+        (
+            "Dates",
+            {
+                "fields": (
+                    "created_at",
+                    "updated_at",
+                ),
+            },
+        ),
+    )

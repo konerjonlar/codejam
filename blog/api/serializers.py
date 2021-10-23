@@ -1,9 +1,15 @@
 from rest_framework import serializers
 
-from blog.models import Blog
+from blog.models import Post, Project
 
 
-class BlogSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Blog
-        fields = ("id", "title", "description")
+        model = Post
+        fields = ("id", "title", "description", "tags", "is_active")
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ("id", "title", "description", "tags", "is_active")

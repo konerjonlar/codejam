@@ -1,10 +1,32 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 
-# Create your models here.
-class Blog(models.Model):
-    title = models.CharField(max_length=120)
+class BaseContent(models.Model):
+    title = models.CharField(max_length=255)
     description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    tags = TaggableManager()
+    is_active = models.BooleanField(default=True)
 
-    def _str_(self):
+    class Meta:
+        abstract = True
+
+
+class Post(BaseContent):
+    def __str__(self) -> str:
         return self.title
+
+    class Meta:
+        verbose_name = "post"
+        verbose_name_plural = "posts"
+
+
+class Project(BaseContent):
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name = "project"
+        verbose_name_plural = "projects"

@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 
-from blog.api import views
+from auth.api.urls import auth_router
+from blog.api.urls import blog_router
 
 router = routers.DefaultRouter()
-router.register("blogs", views.BlogView, "blog")
+router.registry.extend(auth_router.registry)
+router.registry.extend(blog_router.registry)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
