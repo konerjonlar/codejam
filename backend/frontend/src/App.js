@@ -7,13 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewCompleted: false,
       blogList: [],
       modal: false,
       activeItem: {
         title: "",
         description: "",
-        completed: false,
       },
     };
   }
@@ -53,7 +51,7 @@ class App extends Component {
 
     
   createItem = () => {
-    const item = { title: "", description: "", completed: false };
+    const item = { title: "", description: ""};
 
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
@@ -61,15 +59,6 @@ class App extends Component {
   editItem = (item) => {
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
-
-  displayCompleted = (status) => {
-    if (status) {
-      return this.setState({ viewCompleted: true });
-    }
-
-    return this.setState({ viewCompleted: false });
-  };
-
  
   renderItems = () => {
     
@@ -81,9 +70,7 @@ class App extends Component {
         className="list-group-item d-flex justify-content-between align-items-center"
       >
         <span
-          className={`blog-title mr-2 ${
-            this.state.viewCompleted ? "completed-blog" : ""
-          }`}
+          className={`blog-title mr-2 `}
           title={item.description}
         >
           {item.title}
