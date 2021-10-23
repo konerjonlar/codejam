@@ -1,0 +1,7 @@
+exclude: migrations
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.9.1
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=119, --wrap-length=119]
