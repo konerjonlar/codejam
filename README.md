@@ -3,9 +3,9 @@ basic blog project with django and react
 - install python  
 - install pip
 
-create evnironment  
+create evnironment(example)  
 ``python3 -m venv yourEnv``
-***connect envnironment***
+***and connect envnironment***
 
 install dependencies  
 
