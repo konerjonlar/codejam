@@ -2,7 +2,7 @@
 name = "patika-codejam"
 version = "0.1.0"
 description = ""
-authors = ["ahmetveburak <ahmetbozyurtt@gmail.com>"]
+authors = ["ahmetveburak <ahmetbozyurtt@gmail.com>","konerjonlar <orhancansu98@gmail.com","Burakuslendera <burakaslen12@hotmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
