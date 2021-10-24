@@ -35,18 +35,27 @@ class Post(BaseContent):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+    def get_tags(self):
+        return ", ".join([tag.name for tag in self.tags.all()])
+
+    def post_summary(self):
+        return f"{self.content[:200]} ..."
+
     class Meta:
         verbose_name = "post"
         verbose_name_plural = "posts"
 
 
 class Project(BaseContent):
+    site = models.URLField("Proje Url", blank=True)
+
     def __str__(self) -> str:
         return self.title
 
     def save(self, *args, **kwargs) -> None:
         if not self.pk:
             self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "project"

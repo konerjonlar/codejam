@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block body %}
+{% load thumbnail %}
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css' %}" />
@@ -11,19 +12,19 @@
     <h3 class="mt-4">{{post.title}}</h3>
 
     <!-- Author -->
-    <p class="lead">{{post.author}} tarafından yayınlandı</p>
+    <p class="lead">{{post.author.get_full_name}} tarafından yayınlandı</p>
 
     <hr />
 
     <!-- Date/Time -->
-    <p>{{post.created_date}}</p>
-
+    <p>{{post.created_at}}</p>
+    <p>{{post.tags.all|join:", "}}</p>
     <hr />
 
     <!-- Preview Image -->
-    {% if post.post_image %}
-    <img class="img-fluid rounded" src="{{post.post_image.url}}" alt="" />
-    {% endif %}
+ 
+    <img class="img-fluid rounded" src="{% thumbnail post.image 700x350%}" alt="" />
+
 
     <hr />
 

@@ -16,7 +16,7 @@
       popularised in the 1960s with the release of Letraset sheets containing Lorem
       Ipsum passages, and more recently with desktop publishing software like Aldus
       PageMaker including versions of Lorem Ipsum.</p>
-    image: not_found.jpg
+    image: post_images/not-found.jpg
 - model: blog.post
   pk: 2
   fields:
@@ -35,7 +35,7 @@
       popularised in the 1960s with the release of Letraset sheets containing Lorem
       Ipsum passages, and more recently with desktop publishing software like Aldus
       PageMaker including versions of Lorem Ipsum.</p>
-    image: not_found.jpg
+    image: post_images/not-found.jpg
 - model: blog.post
   pk: 3
   fields:
@@ -56,4 +56,4 @@
       a handful of model sentence structures, to generate Lorem Ipsum which looks
       reasonable. The generated Lorem Ipsum is therefore always free from repetition,
       injected humour, or non-characteristic words etc.</p>
-    image: not_found.jpg
+    image: post_images/not-found.jpg

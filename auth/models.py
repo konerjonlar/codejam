@@ -2,6 +2,17 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class User(AbstractUser):
+    about = models.CharField(max_length=200)
+
+    def get_full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        verbose_name = "user"
+        verbose_name_plural = "users"
+
+
 class Social(models.Model):
     name = models.CharField(max_length=120)
     logo = models.CharField(max_length=120)
@@ -29,27 +40,3 @@ class Skill(models.Model):
     class Meta:
         verbose_name = "skill"
         verbose_name_plural = "skills"
-
-
-class User(AbstractUser):
-    social = models.ForeignKey(
-        Social,
-        verbose_name="Social Links",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-    )
-    skills = models.ForeignKey(
-        Skill,
-        verbose_name="Skills",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-    )
-
-    def get_full_name(self) -> str:
-        return f"{self.first_name} {self.last_name}"
-
-    class Meta:
-        verbose_name = "user"
-        verbose_name_plural = "users"

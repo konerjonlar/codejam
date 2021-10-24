@@ -6,7 +6,7 @@
     
         <div class="col-md-10 offset-md-3">
             <div class="col-lg-8">
-                <h3>Makaleler</h3>
+                <h1>Makaleler</h1>
                 <hr>
                 </div>
         </div>
@@ -33,20 +33,9 @@
       <div class="col-lg-8">
 
         <a href="{% url 'post-detail' post.slug %}"><h2 class="mt-4">{{post.title}}</h2></a> 
-          
-        <p class="lead">
-          {{post.author.get_full_name}} tarafından yayınlandı
-        </p>
 
         <hr>
-        <p>{{post.created_date}}</p>
-        <hr>
-        <!-- Preview Image -->
-        {% if post.post_image %}
-        <a href="{% url 'post-detail' post.slug %}"><img class="img-fluid rounded" src="{{post.post_image.url}}" alt=""></a>
-        {% endif %}
-      
-
+        <p>{{post.created_at}}</p>
         <hr>
 
         <!-- Post Content -->

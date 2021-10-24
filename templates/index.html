@@ -1,38 +1,66 @@
-{% extends "base.html" %} {% block body %}
+{% extends "base.html" %} 
+{% block body %}
+{% load thumbnail %}
+{% load static %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 <div class="container">
+ 
+    
   <div class="row">
-    <div class="col-2"></div>
     <div class="col-3 text-center">
-      <img src="https://dummyimage.com/60x60/000/fff.jpg" alt="">
-      <h3>Orhan Cansu </h3>
-      <br/>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, recusandae expedita ullam veniam sint aut?</p>
+ 
+        <div class="img d-flex justify-content-center"><img src="https://dummyimage.com/60x60/000/fff.jpg" alt=""></div>
+        <div class="text">
+        <h3>{{admin.get_full_name}}</h3>
+        <p>{{admin.about}}</p>
+        </div>
+
+        {% for skill in skills %}
+          <a href="{{skill.link}}"><i class="{{skill.logo}} fa-2x"></i></a>
+        {% endfor %}
       
     </div>
       
     
-    <div class="col-5 text-center">
+    <div class="col-5 text-center" style="padding-right:50px;">
        <!-- Nested row for non-featured blog posts-->
        <div class="row">
         <div class="col">
             <!-- Blog post-->
+            <h1>Makaleler</h1>
             {% for post in posts %}  
             <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                
                 <div class="card-body">
                     <div class="small text-muted">{{post.created_time}}</div>
                     <h2 class="card-title h4">{{post.title}}</h2>
-                    <p class="card-text">{{post.description}}</p>
+                    <p class="card-text">{{post.post_summary|safe}}</p>
                     <a class="btn btn-primary" href="{% url 'post-detail' post.slug %}">Read more →</a>
                 </div>
             </div>
             {% endfor %}
         </div>
      
+    </div></div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">Categories</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                  
+                    <ul class="list-unstyled mb-0">
+                      {% for tag in tags %}  
+                        <li><a href="#!">{{tag}}</a></li>
+                       {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-2"></div>
-  </div>
+    </div>
+  
 </div>
   
  

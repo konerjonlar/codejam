@@ -5,7 +5,7 @@ from blog.models import Post, Project
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "tags")
+    list_display = ("title", "description", "get_tags", "is_active")
     search_fields = ("title", "tags")
 
     readonly_fields = ("created_at", "updated_at")
@@ -38,7 +38,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "tags")
+    list_display = ("title", "description", "tags", "is_active")
     search_fields = ("title", "tags")
 
     readonly_fields = ("created_at", "updated_at")
@@ -49,7 +49,9 @@ class ProjectAdmin(admin.ModelAdmin):
                 "fields": (
                     "title",
                     "description",
+                    "site",
                     "tags",
+                    "is_active",
                 ),
             },
         ),
