@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-$1aw9lfp$pc1ni$d7e-^ho)6$)i_5)$ptmaer^8a#)g^h!i6j6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: list = []
+ALLOWED_HOSTS: list = ["*"]
 
 
 # Application definition
@@ -37,8 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "article",
     "auth",
     "blog",
+    "ckeditor",
     "corsheaders",
     "rest_framework",
     "taggit",
@@ -56,11 +59,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "backend.urls"
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000","http://localhost:5500"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -68,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -109,9 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "tr"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Istanbul"
 
 USE_I18N = True
 
@@ -131,3 +135,20 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "blog_auth.User"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        "allowedContent" : True,
+        "width" : "100%",
+    }
+}
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

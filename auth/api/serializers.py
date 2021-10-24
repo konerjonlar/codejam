@@ -15,7 +15,7 @@ class SocialSerializer(serializers.ModelSerializer):
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
-        fields = ("name", "logo", "description")
+        fields = ("id","name", "logo", "description")
 
     def __str__(self) -> str:
         return self.name

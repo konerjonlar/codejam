@@ -17,6 +17,7 @@ class Social(models.Model):
 
 
 class Skill(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=120)
     logo = models.CharField(max_length=120)
     description = models.CharField(max_length=300)

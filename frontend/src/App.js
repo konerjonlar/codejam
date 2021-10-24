@@ -7,10 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blogList: [],
+      skillList: [],
       modal: false,
       activeItem: {
-        title: "",
+        name: "",
+        tag:"",
         description: "",
       },
     };
@@ -21,8 +22,8 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("/api/blogs/")
-      .then((res) => this.setState({ blogList: res.data }))
+      .get("/api/skill/")
+      .then((res) => this.setState({ skillList: res.data }))
       .catch((err) => console.log(err));
   };
   toggle = () => {
@@ -33,25 +34,25 @@ class App extends Component {
     this.toggle();
     if (item.id) {
       axios
-        .put(`/api/blogs/${item.id}/`, item)
+        .put(`/api/skill/${item.id}/`, item)
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("/api/blogs/", item)
+      .post("/api/skill/", item)
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-      .delete(`/api/blogs/${item.id}/`)
+      .delete(`/api/skill/${item.id}/`)
       .then((res) => this.refreshList());
   };
 
 
     
   createItem = () => {
-    const item = { title: "", description: ""};
+    const item = { name: "",logo:"x", description: ""};
 
     this.setState({ activeItem: item, modal: !this.state.modal });
   };
@@ -62,7 +63,7 @@ class App extends Component {
  
   renderItems = () => {
     
-    const newItems = this.state.blogList
+    const newItems = this.state.skillList
 
     return newItems.map((item) => (
       <li
@@ -70,10 +71,10 @@ class App extends Component {
         className="list-group-item d-flex justify-content-between align-items-center"
       >
         <span
-          className={`blog-title mr-2 `}
-          title={item.description}
+          className={`skill-name mr-2 `}
+          name={item.description}
         >
-          {item.title}
+          {item.name}
         </span>
         <span>
           <button
@@ -96,7 +97,7 @@ class App extends Component {
   render() {
     return (
       <main className="container">
-        <h1 className="text-white text-uppercase text-center my-4">blog app</h1>
+        <h1 className="text-white text-uppercase text-center my-4">skill app</h1>
         <div className="row">
           <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
@@ -105,7 +106,7 @@ class App extends Component {
                   className="btn btn-primary"
                   onClick={this.createItem}
                 >
-                  Add Blog
+                  Add skill
                 </button>
               </div>
              
@@ -117,7 +118,7 @@ class App extends Component {
         </div>
         {this.state.modal ? (
           <Modal
-            activeItem={this.state.activeItem}
+            activeItem={this.state}
             toggle={this.toggle}
             onSave={this.handleSubmit}
           />
