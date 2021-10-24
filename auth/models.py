@@ -47,6 +47,9 @@ class User(AbstractUser):
         on_delete=models.CASCADE,
     )
 
+    def get_full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"

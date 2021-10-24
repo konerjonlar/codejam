@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block body %}
+<div class="row">
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+    <!-- Title -->
+    <h3 class="mt-4">{{post.title}}</h3>
+
+    <!-- Author -->
+    <p class="lead">{{post.author}} tarafından yayınlandı</p>
+
+    <hr />
+
+    <!-- Date/Time -->
+    <p>{{post.created_date}}</p>
+
+    <hr />
+
+    <!-- Preview Image -->
+    {% if post.post_image %}
+    <img class="img-fluid rounded" src="{{post.post_image.url}}" alt="" />
+    {% endif %}
+
+    <hr />
+
+    <!-- Post Content -->
+    <p class="lead">{{post.content|safe}}</p>
+
+    <hr />
+  </div>
+</div>
+
+{% endblock body %}

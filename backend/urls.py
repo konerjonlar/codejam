@@ -19,7 +19,6 @@ from rest_framework import routers
 
 from auth.api.urls import auth_router
 from blog.api.urls import blog_router
-from . import views
 
 router = routers.DefaultRouter()
 router.registry.extend(auth_router.registry)
@@ -28,8 +27,5 @@ router.registry.extend(blog_router.registry)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
-    path("",views.index,name = "index"),
-    path('about/',views.about,name = "about"),
-    path('articles/',include("article.urls")),
-
+    path("blog/", include("blog.urls")),
 ]

@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "article",
+    # user defined apps
     "auth",
     "blog",
+    # installed apps
     "ckeditor",
     "corsheaders",
     "rest_framework",
@@ -59,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "backend.urls"
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000","http://localhost:5500"]
+CORS_ORIGIN_WHITELIS: list = ["http://localhost:3000", "http://localhost:5500"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -71,7 +72,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'django.template.context_processors.media',
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -135,20 +136,20 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "blog_auth.User"
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
-        "allowedContent" : True,
-        "width" : "100%",
+        "allowedContent": True,
+        "width": "100%",
     }
 }
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

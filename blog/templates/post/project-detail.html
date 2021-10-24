@@ -3,27 +3,27 @@
   <!-- Post Content Column -->
   <div class="col-lg-8">
     <!-- Title -->
-    <h3 class="mt-4">{{article.title}}</h3>
+    <h3 class="mt-4">{{project.title}}</h3>
 
     <!-- Author -->
-    <p class="lead">{{article.author}} tarafından yayınlandı</p>
+    <p class="lead">{{project.author}} tarafından yayınlandı</p>
 
     <hr />
 
     <!-- Date/Time -->
-    <p>{{article.created_date}}</p>
+    <p>{{project.created_date}}</p>
 
     <hr />
 
     <!-- Preview Image -->
-    {% if article.article_image %}
-    <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="" />
+    {% if project.project_image %}
+    <img class="img-fluid rounded" src="{{project.project_image.url}}" alt="" />
     {% endif %}
 
     <hr />
 
     <!-- Post Content -->
-    <p class="lead">{{article.content|safe}}</p>
+    <p class="lead">{{project.content|safe}}</p>
 
     <hr />
   </div>

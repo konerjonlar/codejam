@@ -14,9 +14,13 @@ class PostAdmin(admin.ModelAdmin):
             "Post Information",
             {
                 "fields": (
+                    "author",
                     "title",
                     "description",
+                    "content",
                     "tags",
+                    "image",
+                    "is_active",
                 ),
             },
         ),
