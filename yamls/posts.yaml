@@ -1,0 +1,59 @@
+- model: blog.post
+  pk: 1
+  fields:
+    title: Lorem Ipsum
+    description: ''
+    created_at: 2021-10-24 10:14:27.290848+00:00
+    updated_at: 2021-10-24 10:14:27.290910+00:00
+    is_active: true
+    slug: lorem-ipsum
+    author: 1
+    content: <p>Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since
+      the 1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but also
+      the leap into electronic typesetting, remaining essentially unchanged. It was
+      popularised in the 1960s with the release of Letraset sheets containing Lorem
+      Ipsum passages, and more recently with desktop publishing software like Aldus
+      PageMaker including versions of Lorem Ipsum.</p>
+    image: not_found.jpg
+- model: blog.post
+  pk: 2
+  fields:
+    title: Ipsum Lorem
+    description: ''
+    created_at: 2021-10-24 10:15:30.100942+00:00
+    updated_at: 2021-10-24 10:15:30.100971+00:00
+    is_active: true
+    slug: ipsum-lorem
+    author: 1
+    content: <p>Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting
+      industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since
+      the 1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but also
+      the leap into electronic typesetting, remaining essentially unchanged. It was
+      popularised in the 1960s with the release of Letraset sheets containing Lorem
+      Ipsum passages, and more recently with desktop publishing software like Aldus
+      PageMaker including versions of Lorem Ipsum.</p>
+    image: not_found.jpg
+- model: blog.post
+  pk: 3
+  fields:
+    title: Dummy Post
+    description: ''
+    created_at: 2021-10-24 10:16:10.140843+00:00
+    updated_at: 2021-10-24 10:16:10.140868+00:00
+    is_active: true
+    slug: dummy-post
+    author: 1
+    content: <p>There are many variations of passages of Lorem Ipsum available, but
+      the majority have suffered alteration in some form, by injected humour, or randomised
+      words which don&#39;t look even slightly believable. If you are going to use
+      a passage of Lorem Ipsum, you need to be sure there isn&#39;t anything embarrassing
+      hidden in the middle of text. All the Lorem Ipsum generators on the Internet
+      tend to repeat predefined chunks as necessary, making this the first true generator
+      on the Internet. It uses a dictionary of over 200 Latin words, combined with
+      a handful of model sentence structures, to generate Lorem Ipsum which looks
+      reasonable. The generated Lorem Ipsum is therefore always free from repetition,
+      injected humour, or non-characteristic words etc.</p>
+    image: not_found.jpg

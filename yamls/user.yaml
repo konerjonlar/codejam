@@ -5,8 +5,8 @@
     last_login: null
     is_superuser: true
     username: admin # pass 1
-    first_name: ''
-    last_name: ''
+    first_name: 'Admin'
+    last_name: 'Bey'
     email: admin@admin.com
     is_staff: true
     is_active: true
