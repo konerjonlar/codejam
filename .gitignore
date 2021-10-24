@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 staticfiles
 
+
 # dependencies
 frontend/node_modules
 frontend/.pnp
@@ -22,9 +23,6 @@ frontend./env.production.local
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
-
-
-codejam/.gitignore
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/django
