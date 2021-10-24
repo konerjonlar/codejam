@@ -1,29 +1,27 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+
 # dependencies
-/backend/frontend/node_modules
-/backend/frontend/.pnp
-/backend/frontend/.pnp.js
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
 
 # testing
-/backend/frontend/coverage
+frontend/coverage
 
 # production
-/backend/frontend/build
+frontend/build
 
 # misc
-/backend/frontend/.DS_Store
-/backend/frontend/.env.local
-/backend/frontend/.env.development.local
-/backend/frontend/.env.test.local
-/backend/frontend./env.production.local
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend./env.production.local
 
-/backend/frontend/npm-debug.log*
-/backend/frontend/yarn-debug.log*
-/backend/frontend/yarn-error.log*
-
-
-codejam/.gitignore
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/django
