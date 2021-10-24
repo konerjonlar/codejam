@@ -15,17 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic import TemplateView
 from rest_framework import routers
 
 from auth.api.urls import auth_router
 from blog.api.urls import blog_router
+from blog.models import Post, Project
 
 router = routers.DefaultRouter()
 router.registry.extend(auth_router.registry)
 router.registry.extend(blog_router.registry)
 
+
+class IndexView(TemplateView):
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["posts"] = Post.objects.all()
+        context["projects"] = Project.objects.all()
+
+        return context
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
     path("blog/", include("blog.urls")),
+    path("", IndexView.as_view(), name="index")
 ]
