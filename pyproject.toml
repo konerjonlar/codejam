@@ -10,6 +10,10 @@ Django = "^3.2.8"
 django-cors-headers = "^3.10.0"
 djangorestframework = "^3.12.4"
 django-taggit = "^1.5.1"
+django-ckeditor = "^6.1.0"
+Pillow = "^8.4.0"
+easy-thumbnails = "^2.7.2"
+django-markdownx = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.910"
