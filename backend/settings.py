@@ -146,9 +146,16 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 CKEDITOR_CONFIGS = {
     "default": {
-        "removePlugins": "stylesheetparser",
+        "skin": "moono",
+        "toolbar": "full",
         "allowedContent": True,
         "width": "100%",
+        "codeSnippet_theme": "monokai_sublime",
+        "extraPlugins": ",".join(
+            [
+                "codesnippet",
+            ]
+        ),
     }
 }
 MEDIA_URL = "/media/"

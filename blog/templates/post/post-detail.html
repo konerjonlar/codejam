@@ -1,4 +1,9 @@
 {% extends "base.html" %} {% block body %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css' %}" />
+<script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>
+
 <div class="row">
   <!-- Post Content Column -->
   <div class="col-lg-8">
@@ -28,5 +33,5 @@
     <hr />
   </div>
 </div>
-
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock body %}
