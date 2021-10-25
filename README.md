@@ -21,9 +21,3 @@ install dependencies
 django run this port
 ***http://127.0.0.1:8000/***
 
-## run reactapp
-``cd fronend/``  
-``npm install``   
-``npm run start``  
-react run this port
-***http://127.0.0.1:3000/***
